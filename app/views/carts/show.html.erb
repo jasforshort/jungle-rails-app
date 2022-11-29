@@ -4,6 +4,7 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if (enhanced_cart.length > 0) %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -25,7 +26,7 @@
             TOTAL:
           </th>
           <th>
-            <%= cart_subtotal_cents / 100.0 %>
+            $<%= cart_subtotal_cents / 100.0 %>
           </th>
         </tr>
       </tfoot>
@@ -48,5 +49,7 @@
       <% end %>
     </div>
   </div>
-
+  <% else %>
+    <div> Oh no, you have no items in your cart! </div>
+    <a class="navbar-brand" href="<%= root_path %>"> Homepage </a>  <% end %>
 </section>
